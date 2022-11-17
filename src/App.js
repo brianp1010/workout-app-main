@@ -1,6 +1,6 @@
 import React from "react";
 import About from "./pages/About";
-import Calendar from "./pages/Calendar";
+import CalendarApp from "./pages/CalendarApp";
 import Fitness from "./pages/Fitness";
 import Navi from "./pages/Navi";
 import Home from "./pages/Home";
@@ -22,7 +22,7 @@ function App() {
       <Navi />
         <Routes>
           <Route path="/about-us" element={<About></About>} />
-          <Route path="/calendar" element={<Calendar></Calendar>} />
+          <Route path="/calendar" element={<CalendarApp></CalendarApp>} />
           <Route path="/fitness" element={<Fitness></Fitness>} />
           <Route path="/home" element={<Home></Home>} />
           <Route path="/pricing" element={<Pricing></Pricing>} />
