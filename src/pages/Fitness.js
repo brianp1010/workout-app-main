@@ -103,14 +103,14 @@ function Fitness() {
     return( 
     <div>
       {" "}
-      <h3>Workout Name: {custom_workout.wo}</h3>
-      <h3>Reps: {custom_workout.reps}</h3>
+      <h3 class="font-monospace lead text-center">Workout Name: {custom_workout.wo}</h3>
+      <h3 class="font-monospace lead text-center">Reps: {custom_workout.reps}</h3>
       <button onClick={()=>{updateReps1(custom_workout.id, custom_workout.reps)}}>Increase Reps</button>
       <button onClick={()=>{updateReps2(custom_workout.id, custom_workout.reps)}}>Decrease Reps</button>
       <button onClick={()=> {deleteWorkout(custom_workout.id);}}>Delete Workout</button>
       </div>
     );   
-  })}
+  })}   
 
   </div>
   </Container>
