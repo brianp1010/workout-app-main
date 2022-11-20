@@ -6,7 +6,7 @@ function Navi() {
         <Navbar fixed="top" bg="secondary" variant="dark">
             <Container>    
             <Navbar.Brand href="home">Workouts Made Easy</Navbar.Brand>
-                <Nav className="me-auto">
+                <Nav className="me-auto font-monospace">
                     <Nav.Link href="home">Home</Nav.Link>
                     <Nav.Link href="calendar">Calendar</Nav.Link>
                     <Nav.Link href="fitness">Fitness</Nav.Link>
