@@ -82,7 +82,7 @@ function Fitness() {
     <Container className="d-flex align-items-center 
     justify-content-center" style={{ minHeight: "100vh"}} >
   <div className="App">
-    <h1>Work Out List</h1>
+    <h1 class="font-monospace lead text-center">Work Out List</h1>
     <input 
     placeholder = "Workout_Name..." 
     onChange={(event) => {

@@ -28,7 +28,7 @@ return (
         justify-content-center" style={{ minHeight: "100vh"}} >                                                       
 <div class="text-center m-5">
 {" "}
-  <h1>Workout Calendar</h1>
+  <h1 class="font-monospace lead">Workout Calendar</h1>
   <Calendar onChanges={onChanges} values={values} />
 {" "}
 </div>
