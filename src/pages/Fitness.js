@@ -11,9 +11,14 @@ import {collection, getDocs, addDoc, updateDoc, deleteDoc, doc} from 'firebase/f
 function Fitness() {
   const[newWorkoutName, setNewWorkoutName] = useState("")
   const[newReps, setReps] = useState(0)
+  const[newDates] = useState(new Date())
+  const[newSeries, setSeries] = useState(0)
+
 
   //callendar values  
   const [custom_workouts, setCustom_workouts]= useState([]);
+
+
 
   //creating a reference to the database collection (the entire thing)
   const customWorkoutsCollectionRef = collection(db, "custom_workouts")
@@ -23,7 +28,7 @@ function Fitness() {
     //1. the reference to the collection that we are talking about, customWorkoutsCollectionRef
     //2. takes in an object that contains the data that we are going to add to the collection
     //    add document to workout collection    (this area is the document value)                                                            
-    await addDoc(customWorkoutsCollectionRef, {wo: newWorkoutName, reps: Number(newReps)})
+    await addDoc(customWorkoutsCollectionRef, {wo: newWorkoutName, reps: Number(newReps), dates: Date(newDates), series: Number(newSeries)})
   }
 
   //need to identify which document we need to update
@@ -95,6 +100,12 @@ function Fitness() {
       setReps(event.target.value);
     }}
     />
+    <input 
+    placeholder = "Enter Series..." 
+    onChange={(event) => {
+      setSeries(event.target.value);
+    }}
+    />
     
     <button onClick={createWorkoutName}>Create Workout</button>
 
@@ -105,6 +116,8 @@ function Fitness() {
       {" "}
       <h3 class="font-monospace lead text-center">Workout Name: {custom_workout.wo}</h3>
       <h3 class="font-monospace lead text-center">Reps: {custom_workout.reps}</h3>
+      <h3 class="font-monospace lead text-center">Series: {custom_workout.series}</h3>
+      <h3 class="font-monospace lead text-center">Date: {custom_workout.Dates}</h3>
       <button onClick={()=>{updateReps1(custom_workout.id, custom_workout.reps)}}>Increase Reps</button>
       <button onClick={()=>{updateReps2(custom_workout.id, custom_workout.reps)}}>Decrease Reps</button>
       <button onClick={()=> {deleteWorkout(custom_workout.id);}}>Delete Workout</button>
