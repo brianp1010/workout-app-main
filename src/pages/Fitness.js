@@ -11,6 +11,7 @@ import {collection, getDocs, addDoc, updateDoc, deleteDoc, doc} from 'firebase/f
 function Fitness() {
   const[newWorkoutName, setNewWorkoutName] = useState("")
   const[newReps, setReps] = useState(0)
+
   const[newDates] = useState(new Date())
   const[newSeries, setSeries] = useState(0)
 
@@ -28,7 +29,7 @@ function Fitness() {
     //1. the reference to the collection that we are talking about, customWorkoutsCollectionRef
     //2. takes in an object that contains the data that we are going to add to the collection
     //    add document to workout collection    (this area is the document value)                                                            
-    await addDoc(customWorkoutsCollectionRef, {wo: newWorkoutName, reps: Number(newReps), dates: Date(newDates), series: Number(newSeries)})
+    await addDoc(customWorkoutsCollectionRef, {wo: newWorkoutName, reps: Number(newReps), series: Number(newSeries), dates: Date(newDates)})
   }
 
   //need to identify which document we need to update
