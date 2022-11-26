@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 
-
 import{db} from '../firebase-config'
 //addDoc enables users to add information
 //doc allows us to create an instance of an object
@@ -12,11 +11,11 @@ function Fitness() {
   const[newWorkoutName, setNewWorkoutName] = useState("")
   const[newReps, setReps] = useState(0)
 
-  const[newDates] = useState(new Date())
+  const[newDates] = useState(new Date().toString())
   const[newSeries, setSeries] = useState(0)
 
 
-  //callendar values  
+  //custom workout values
   const [custom_workouts, setCustom_workouts]= useState([]);
 
 
@@ -80,7 +79,14 @@ function Fitness() {
 
     //then make it get this function
     getCustom_Workout()
-  }, )
+    //-----------------------------------------------------------------------------------------------------------------
+    //IMPORTANT COMMENT
+    //PLEASE READ THIS
+    //VERY VERY IMPORTANT
+    //[] KEEPS THIS CODE FROM WRITING TOO MANY WRITES
+    //ONLY REMOVE ON SHOW DAY
+    //-----------------------------------------------------------------------------------------------------------------
+  }, [])
 
 
   return (
@@ -93,7 +99,7 @@ function Fitness() {
     placeholder = "Workout_Name..." 
     onChange={(event) => {
       setNewWorkoutName(event.target.value);
-    }}
+    }} 
     />
     <input 
     placeholder = "Rep Amount..." 
@@ -118,7 +124,7 @@ function Fitness() {
       <h3 class="font-monospace lead text-center">Workout Name: {custom_workout.wo}</h3>
       <h3 class="font-monospace lead text-center">Reps: {custom_workout.reps}</h3>
       <h3 class="font-monospace lead text-center">Series: {custom_workout.series}</h3>
-      <h3 class="font-monospace lead text-center">Date: {custom_workout.Dates}</h3>
+      <h3 class="font-monospace lead text-center">Date: {custom_workout.dates}</h3>
       <button onClick={()=>{updateReps1(custom_workout.id, custom_workout.reps)}}>Increase Reps</button>
       <button onClick={()=>{updateReps2(custom_workout.id, custom_workout.reps)}}>Decrease Reps</button>
       <button onClick={()=> {deleteWorkout(custom_workout.id);}}>Delete Workout</button>
